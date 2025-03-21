@@ -1,0 +1,40 @@
+:root {
+    --primary-color: #008751; /* Green from Nigeria's flag */
+    --secondary-color: #FFFFFF; /* White from Nigeria's flag */
+    --accent-color: #000000; /* Black from Nigeria's flag */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--accent-color);
+    background-color: var(--secondary-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 1rem;
+    text-align: center;
+}
+
+section {
+    margin: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+#large-image img {
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 768px) {
+    /* Adjust styles for larger screens */
+}

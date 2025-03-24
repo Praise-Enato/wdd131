@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Open Sans', Arial, sans-serif;
     margin: 0;
     padding: 0;
     color: var(--accent-color);
@@ -78,6 +78,7 @@ main {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .weather-card h2 {
@@ -89,9 +90,10 @@ main {
 }
 
 .weather-icon {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     transition: all 0.3s ease;
+    display: block;
 }
 
 footer {
@@ -127,10 +129,7 @@ footer {
 
 @media (max-width: 767px) {
     .weather-icon {
-        width: 60px;
-        height: 60px;
-        display: block;
-        margin: 0 auto 0.5rem; 
+        margin: 0 auto 0.5rem;
     }
     
     .weather-heading {

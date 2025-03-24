@@ -3,41 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nigeria</title>
+    <meta name="description" content="country page">
+    <meta name="author" content="Praise Enato">
+    <title>Nigeria Country Page</title>
     <link rel="stylesheet" href="styles/place.css">
     <script src="scripts/place.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>Nigeria</h1>
     </header>
 
-    <section id="large-image">
-        <img src="images/nigeria1.webp" alt="Large Image" srcset="images/nigeria-small.webp 480w, images/nigeria-mid.webp 800w, images/nigeria-large.webp 1200w">
-        <div id="overlay">
-            <div id="data-overlay">
-                <h2>Data</h2>
-                <p><strong>Area:</strong> 923,768 sq km</p>
-                <p><strong>Population:</strong> 211,400,708</p>
-                <p><strong>Capital:</strong> Abuja</p>
-                <p><strong>Languages:</strong> English, Hausa, Yoruba, Igbo</p>
-                <p><strong>Currency:</strong> Nigerian Naira</p>
-                <p><strong>Time Zone:</strong> UTC+1</p>
-                <p><strong>Calling Code:</strong> +234</p>
-                <p><strong>Internet TLD:</strong> .ng</p>
+    <main>
+        <section id="large-image">
+            <img src="images/nigeria1.webp" alt="Large Image of Nigeria" 
+                 srcset="images/nigeria-small.webp 480w, 
+                         images/nigeria-mid.webp 800w, 
+                         images/nigeria-large.webp 1200w"
+                 sizes="(max-width: 480px) 100vw, 
+                        (max-width: 800px) 100vw, 
+                        1200px">
+            <div class="overlay-container">
+                <div class="data-card">
+                    <h2>Data</h2>
+                    <p><strong>Area:</strong> 923,768 sq km</p>
+                    <p><strong>Population:</strong> 211,400,708</p>
+                    <p><strong>Capital:</strong> Abuja</p>
+                    <p><strong>Languages:</strong> English, Hausa, Yoruba, Igbo</p>
+                    <p><strong>Currency:</strong> Nigerian Naira</p>
+                    <p><strong>Time Zone:</strong> UTC+1</p>
+                    <p><strong>Calling Code:</strong> +234</p>
+                    <p><strong>Internet TLD:</strong> .ng</p>
+                </div>
+                <div class="weather-card">
+                    <h2>Weather </h2>
+                    <img src="images/weather-icon.svg" class="weather-icon" alt="Weather icon">
+                    <p><strong>Temperature:</strong> 25 °C</p>
+                    <p><strong>Conditions:</strong> Sunny</p>
+                    <p><strong>Wind:</strong> 10 km/h</p>
+                    <p><strong>Wind Chill:</strong> <span id="windChill"></span></p>
+                </div>
             </div>
-            <div id="weather-overlay">
-                <h2>Weather ⛅</h2>
-                <p><strong>Temperature:</strong> 25 °C</p>
-                <p><strong>Conditions:</strong> Sunny</p>
-                <p><strong>Wind:</strong> 10 km/h</p>
-                <p><strong>Wind Chill:</strong> <span id="windChill"></span></p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
-        <p>©2024 ✨ Your Name ✨ Nigeria</p>
+        <p>©2025<span id="currentYear"></span> ✨ Praise Enato ✨ Nigeria</p>
         <p>Last Modification: <span id="lastModified"></span></p>
     </footer>
 </body>

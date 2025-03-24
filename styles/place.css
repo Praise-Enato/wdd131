@@ -1,11 +1,13 @@
 :root {
-    --primary-color: #096440; /* Green from Nigeria's flag */
-    --secondary-color: #FFFFFF; /* White from Nigeria's flag */
-    --accent-color: #000000; /* Black from Nigeria's flag */
+    --primary-color: #096440;
+    --secondary-color: #FFFFFF;
+    --accent-color: #000000;
+    --heading-bg: #0a4b32;
+    --card-bg: rgba(255, 255, 255, 0.8);
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     color: var(--accent-color);
@@ -17,11 +19,79 @@ header {
     color: var(--secondary-color);
     padding: 1rem;
     text-align: center;
-    font-size: 32px;
+    font-size: 2rem;
 }
 
-section {
-    margin: 1rem;
+main {
+    position: relative;
+}
+
+#large-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.data-card {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--card-bg);
+    color: var(--accent-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 300px;
+}
+
+.data-card h2 {
+    background-color: var(--heading-bg);
+    color: var(--secondary-color);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.weather-card {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--card-bg);
+    color: var(--accent-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 250px;
+}
+
+.weather-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.weather-card h2 {
+    background-color: var(--heading-bg);
+    color: var(--secondary-color);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    margin: 0;
+}
+
+.weather-icon {
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
 }
 
 footer {
@@ -31,57 +101,44 @@ footer {
     color: var(--secondary-color);
 }
 
-#large-image {
-    position: relative;
-}
-
-#large-image img {
-    width: 100%;
-    height: auto;
-}
-
-#overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    pointer-events: none;
-}
-
-#data-overlay {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    color: rgb(3, 0, 0);
-    padding: 10px;
-    border-radius: 5px;
-    pointer-events: auto;
-}
-
-#weather-overlay {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: rgba(250, 247, 247, 0.5);
-    color: rgb(2, 0, 0);
-    padding: 10px;
-    border-radius: 5px;
-    pointer-events: auto;
-}
-
-#data-overlay h2,
-#weather-overlay h2 {
-    background-color: #680c17; /* Wine color */
-    color: white;
-    padding: 5px;
-    border-radius: 3px;
-}
-
 @media (min-width: 768px) {
-    /* Adjust styles for larger screens */
+    header {
+        font-size: 2.5rem;
+    }
+    
+    .data-card {
+        max-width: 350px;
+    }
+    
+    .weather-card {
+        max-width: 300px;
+    }
+
+    .weather-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .weather-heading {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .weather-icon {
+        width: 60px;
+        height: 60px;
+        display: block;
+        margin: 0 auto 0.5rem; 
+    }
+    
+    .weather-heading {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .weather-heading h2 {
+        margin-top: 0.5rem;
+    }
 }

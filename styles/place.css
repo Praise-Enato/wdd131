@@ -1,3 +1,9 @@
+
+::after, ::before {
+    content: none !important;
+    display: none !important;
+}
+
 :root {
     --primary-color: #096440;
     --secondary-color: #FFFFFF;

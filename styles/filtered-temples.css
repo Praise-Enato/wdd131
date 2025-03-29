@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #5a1f1f; /* Wine color */
+    color: #fff;
+    padding: 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+#nav-menu li {
+    margin: 0 1rem;
+}
+
+#nav-menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#nav-menu a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.temple-card {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.temple-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    loading: lazy;
+}
+
+.temple-info {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.temple-info p {
+    margin: 0.5rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #5a1f1f;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 767px) {
+    #hamburger {
+        display: block;
+    }
+
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #nav-menu.active {
+        display: flex;
+    }
+}

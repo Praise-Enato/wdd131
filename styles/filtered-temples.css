@@ -15,7 +15,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #5a1f1f; /* Wine color */
+    background-color: #5a1f1f;
     color: #fff;
     padding: 1rem;
 }
@@ -47,11 +47,22 @@ nav {
 
 #nav-menu li {
     margin: 0 1rem;
+    transition: transform 0.2s ease;
+}
+
+#nav-menu li:hover {
+    transform: scale(1.05);
 }
 
 #nav-menu a {
     color: #fff;
     text-decoration: none;
+    padding: 0.5rem;
+    display: block;
+}
+
+#nav-menu a:hover {
+    color: #f8d7a3;
 }
 
 #nav-menu a.active {
@@ -63,6 +74,17 @@ main {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 1rem;
+}
+
+h1, h2 {
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    color: #5a1f1f;
 }
 
 .gallery {
@@ -86,12 +108,16 @@ main {
     width: 300px;
     height: 200px;
     object-fit: cover;
-    loading: lazy;
 }
 
 .temple-info {
     margin-top: 1rem;
     text-align: left;
+}
+
+.temple-info h3 {
+    color: #5a1f1f;
+    margin-bottom: 0.5rem;
 }
 
 .temple-info p {

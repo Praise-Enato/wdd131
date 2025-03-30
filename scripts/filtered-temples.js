@@ -74,15 +74,21 @@ const temples = [
   ];
   
   // DOM elements
-  const templeCardsContainer = document.getElementById('temple-cards');
-  const navLinks = document.querySelectorAll('#nav-menu a');
-  const pageTitle = document.getElementById('page-title');
-  
-  // Function to create temple card HTML
-  function createTempleCard(temple) {
+const templeCardsContainer = document.getElementById('temple-cards');
+const navLinks = document.querySelectorAll('#nav-menu a');
+const pageTitle = document.querySelector('main h1');
+const pageSubtitle = document.getElementById('page-subtitle');
+
+// Function to create temple card HTML
+function createTempleCard(temple) {
+    const img = document.createElement('img');
+    img.src = temple.imageUrl;
+    img.alt = temple.templeName;
+    img.loading = 'lazy';
+    
     return `
       <div class="temple-card">
-        <img src="${temple.imageUrl}" alt="${temple.templeName}" loading="lazy">
+        ${img.outerHTML}
         <div class="temple-info">
           <h3>${temple.templeName}</h3>
           <p><strong>Location:</strong> ${temple.location}</p>
@@ -91,43 +97,44 @@ const temples = [
         </div>
       </div>
     `;
-  }
-  
-  // Function to display temples based on filter
-  function displayTemples(filter) {
+}
+
+// Function to display temples based on filter
+function displayTemples(filter) {
     let filteredTemples = [];
+    let subtitle = "Discover Sacred Temples";
     
     switch(filter) {
-      case 'old':
-        filteredTemples = temples.filter(temple => {
-          const year = parseInt(temple.dedicated.split(',')[0]);
-          return year < 1900;
-        });
-        pageTitle.textContent = 'Old Temples';
-        break;
-      case 'new':
-        filteredTemples = temples.filter(temple => {
-          const year = parseInt(temple.dedicated.split(',')[0]);
-          return year > 2000;
-        });
-        pageTitle.textContent = 'New Temples';
-        break;
-      case 'large':
-        filteredTemples = temples.filter(temple => temple.area > 90000);
-        pageTitle.textContent = 'Large Temples';
-        break;
-      case 'small':
-        filteredTemples = temples.filter(temple => temple.area < 10000);
-        pageTitle.textContent = 'Small Temples';
-        break;
-      default:
-        filteredTemples = temples;
-        pageTitle.textContent = 'Home';
+        case 'old':
+            filteredTemples = temples.filter(temple => {
+                const year = parseInt(temple.dedicated.split(',')[0]);
+                return year < 1900;
+            });
+            subtitle = "Historical Temples (Before 1900)";
+            break;
+        case 'new':
+            filteredTemples = temples.filter(temple => {
+                const year = parseInt(temple.dedicated.split(',')[0]);
+                return year > 2000;
+            });
+            subtitle = "Modern Temples (After 2000)";
+            break;
+        case 'large':
+            filteredTemples = temples.filter(temple => temple.area > 90000);
+            subtitle = "Large Temples (Over 90,000 sq ft)";
+            break;
+        case 'small':
+            filteredTemples = temples.filter(temple => temple.area < 10000);
+            subtitle = "Small Temples (Under 10,000 sq ft)";
+            break;
+        default:
+            filteredTemples = temples;
+            subtitle = "Discover Sacred Temples";
     }
     
     templeCardsContainer.innerHTML = filteredTemples.map(createTempleCard).join('');
-  }
-  
+    pageSubtitle.textContent = subtitle;
+} 
   // Event listeners for navigation
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {

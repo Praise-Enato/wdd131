@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Submitted</title>
+    <link rel="stylesheet" href="styles/form.css">
+</head>
+<body>
+    <header>
+        <h1>Thank You!</h1>
+        <p>Your review has been submitted successfully.</p>
+    </header>
+
+    <main>
+        <div class="confirmation-message">
+            <p>We appreciate your feedback. Here's what you submitted:</p>
+            
+            <div id="reviewDetails">
+                <!-- Review details will be populated by JavaScript -->
+            </div>
+            
+            <p id="reviewCounter"></p>
+            
+            <a href="form.html" class="button">Submit Another Review</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> ⭐Praise Enato⭐ Product Reviews</p>
+        <p>Last Modified: <span id="lastModified"></span></p>
+    </footer>
+
+    <script src="scripts/form.js"></script>
+    <script>
+        // Display submitted review details
+        const urlParams = new URLSearchParams(window.location.search);
+        const reviewDetails = document.getElementById('reviewDetails');
+        
+        if (urlParams.has('productName')) {
+            reviewDetails.innerHTML += `<p><strong>Product:</strong> ${urlParams.get('productName')}</p>`;
+        }
+        if (urlParams.has('rating')) {
+            reviewDetails.innerHTML += `<p><strong>Rating:</strong> ${'★'.repeat(urlParams.get('rating'))} (${urlParams.get('rating')}/5)</p>`;
+        }
+        if (urlParams.has('installationDate')) {
+            reviewDetails.innerHTML += `<p><strong>Installation Date:</strong> ${new Date(urlParams.get('installationDate')).toLocaleDateString()}</p>`;
+        }
+        if (urlParams.has('usefulFeatures')) {
+            reviewDetails.innerHTML += `<p><strong>Useful Features:</strong> ${Array.from(urlParams.getAll('usefulFeatures')).join(', ')}</p>`;
+        }
+        if (urlParams.has('writtenReview') && urlParams.get('writtenReview').trim() !== '') {
+            reviewDetails.innerHTML += `<p><strong>Your Review:</strong> ${urlParams.get('writtenReview')}</p>`;
+        }
+        if (urlParams.has('userName') && urlParams.get('userName').trim() !== '') {
+            reviewDetails.innerHTML += `<p><strong>Submitted by:</strong> ${urlParams.get('userName')}</p>`;
+        }
+        
+        // Update and display review counter
+        let reviewCount = localStorage.getItem('reviewCount') || 0;
+        reviewCount = parseInt(reviewCount) + 1;
+        localStorage.setItem('reviewCount', reviewCount);
+        document.getElementById('reviewCounter').textContent = `You have submitted ${reviewCount} review${reviewCount !== 1 ? 's' : ''} in total.`;
+        
+        // Set footer content
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.getElementById('lastModified').textContent = document.lastModified;
+    </script>
+</body>
+</html>

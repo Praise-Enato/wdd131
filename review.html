@@ -19,9 +19,7 @@
         <div class="confirmation-message">
             <p>We appreciate your feedback. Here's what you submitted:</p>
             
-            <div id="reviewDetails">
-                <!-- Review details will be populated by JavaScript -->
-            </div>
+            <div id="reviewDetails"></div>
             
             <p id="reviewCounter"></p>
             
@@ -36,7 +34,6 @@
 
     <script src="scripts/form.js"></script>
     <script>
-        // Display submitted review details
         const urlParams = new URLSearchParams(window.location.search);
         const reviewDetails = document.getElementById('reviewDetails');
         
@@ -59,13 +56,11 @@
             reviewDetails.innerHTML += `<p><strong>Submitted by:</strong> ${urlParams.get('userName')}</p>`;
         }
         
-        // Update and display review counter
         let reviewCount = localStorage.getItem('reviewCount') || 0;
         reviewCount = parseInt(reviewCount) + 1;
         localStorage.setItem('reviewCount', reviewCount);
         document.getElementById('reviewCounter').textContent = `You have submitted ${reviewCount} review${reviewCount !== 1 ? 's' : ''} in total.`;
         
-        // Set footer content
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         document.getElementById('lastModified').textContent = document.lastModified;
     </script>

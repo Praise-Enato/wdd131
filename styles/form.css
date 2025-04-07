@@ -1,3 +1,5 @@
+
+
 /* Base Styles */
 :root {
     --primary-color: #3498db;
@@ -17,7 +19,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: #f9f9f9;
